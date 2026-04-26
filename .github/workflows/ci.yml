@@ -14,10 +14,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    container: swift:5.9
     steps:
       - uses: actions/checkout@v4
-      - uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: "5.9"
       - run: swift --version
       - run: swift build -v
