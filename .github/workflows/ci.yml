@@ -19,3 +19,16 @@ jobs:
       - uses: actions/checkout@v4
       - run: swift --version
       - run: swift build -v
+  ci-status:
+    name: CI status
+    if: always()
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for failures
+        run: |
+          if [[ "${{ contains(needs.*.result, 'failure') }}" == "true" ]]; then
+            echo "One or more CI jobs failed"
+            exit 1
+          fi
+          echo "All CI jobs passed or were skipped"
