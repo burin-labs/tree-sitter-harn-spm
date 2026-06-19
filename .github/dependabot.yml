@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # The only moving dependency in this repo is the pinned GitHub Actions used
+  # by CI. The grammar itself is vendored (see UPSTREAM.md) and updated by hand
+  # under supply-chain review, not by Dependabot.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+    groups:
+      actions:
+        patterns: ["*"]

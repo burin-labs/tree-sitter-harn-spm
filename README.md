@@ -9,7 +9,7 @@ Add this package to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/burin-labs/tree-sitter-harn-spm.git", from: "0.1.0")
+    .package(url: "https://github.com/burin-labs/tree-sitter-harn-spm.git", from: "0.2.0")
 ]
 ```
 
