@@ -1,7 +1,7 @@
 # tree-sitter-harn-spm
 
-Swift Package Manager wrapper for the [Harn](https://github.com/burin-labs/harn)
-tree-sitter grammar (vendored from `~/projects/harn/tree-sitter-harn`).
+Swift Package Manager wrapper for the
+[Harn tree-sitter grammar](https://github.com/burin-labs/harn/tree/main/tree-sitter-harn).
 
 ## Usage
 
