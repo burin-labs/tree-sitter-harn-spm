@@ -7,8 +7,7 @@ build it without needing `tree-sitter-cli`.
 
 ## Upstream
 
-- **Path:** `~/projects/harn/tree-sitter-harn` (sources for the Harn grammar)
-- **Repo:** https://github.com/burin-labs/harn (subdirectory `tree-sitter-harn`)
+- **Source:** [burin-labs/harn/tree-sitter-harn](https://github.com/burin-labs/harn/tree/main/tree-sitter-harn)
 - **License:** see Harn repo `LICENSE-MIT` / `LICENSE-APACHE`
 
 ## Vendored commit
@@ -25,10 +24,13 @@ whose `tree-sitter-harn/src/parser.c` you copied in, and bump the date.
 ## How to re-vendor
 
 ```sh
-# Regenerate the parser (run from harn checkout):
-cd ~/projects/harn/tree-sitter-harn
-npx tree-sitter generate
-UPSTREAM_SHA="$(git -C ~/projects/harn rev-parse HEAD)"
+# Set these to clean checkouts of both repositories.
+HARN_REPO="/path/to/harn"
+THIS_REPO="/path/to/tree-sitter-harn-spm"
+
+# Regenerate the parser in the Harn checkout.
+(cd "$HARN_REPO/tree-sitter-harn" && npx tree-sitter generate)
+UPSTREAM_SHA="$(git -C "$HARN_REPO" rev-parse HEAD)"
 
 # Copy the artifact + headers into this repo:
 cp src/parser.c        "$THIS_REPO/Sources/TreeSitterHarn/src/parser.c"
@@ -36,8 +38,8 @@ cp src/tree_sitter/*.h "$THIS_REPO/Sources/TreeSitterHarn/src/tree_sitter/" 2>/d
 # If the grammar ships a custom scanner, copy that too:
 [ -f src/scanner.c ] && cp src/scanner.c "$THIS_REPO/Sources/TreeSitterHarn/src/scanner.c"
 
-# Update this file with the new SHA.
-sed -i '' "s|Last reviewed commit | \`.*\`|Last reviewed commit | \`${UPSTREAM_SHA}\`|" "$THIS_REPO/UPSTREAM.md"
+# Record UPSTREAM_SHA and the current date in the provenance table above.
+printf 'Vendored Harn commit: %s\n' "$UPSTREAM_SHA"
 ```
 
 Review the diff carefully -- a multi-hundred-KB `parser.c` is the supply
