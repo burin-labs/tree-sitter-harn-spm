@@ -1,0 +1,13 @@
+enum Result {
+  Ok(value: string),
+  Err(message: string, code: int),
+}
+
+struct Config {
+  host: string
+  port?: int
+}
+
+interface Repository<T> {
+  fn get(id: string) -> T
+}
