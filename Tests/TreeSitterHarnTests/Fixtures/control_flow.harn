@@ -1,0 +1,10 @@
+pipeline choose(task) {
+  var attempts = 0
+  while attempts < 3 {
+    if task.ready {
+      return task.value
+    }
+    attempts = attempts + 1
+  }
+  return "not ready"
+}
