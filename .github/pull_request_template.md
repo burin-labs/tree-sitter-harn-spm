@@ -1,3 +1,12 @@
+<!--
+Title this pull request `[Area] Sentence case`, for example:
+  [Grammar] Re-vendor the parser from harn commit a1b2c3d
+  [CI] Pin the checkout action to a release SHA
+  [Docs] Correct the exported symbol check
+
+Common areas here are `Grammar`, `Packaging`, `CI`, `Tests`, and `Docs`.
+-->
+
 ## Description
 
 <!--
