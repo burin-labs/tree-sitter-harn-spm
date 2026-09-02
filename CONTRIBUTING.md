@@ -1,5 +1,25 @@
 # Contributing to `tree-sitter-harn-spm`
 
+## Scope
+
+This repository is a packaging wrapper. It vendors the generated parser for the
+Harn tree-sitter grammar so Swift Package Manager can build it without running
+`tree-sitter-cli`. The grammar itself is not developed here.
+
+Unlike the wrappers around third-party grammars, the upstream in this case is
+this organization's own: the canonical grammar lives in
+[`burin-labs/harn`](https://github.com/burin-labs/harn/tree/main/tree-sitter-harn).
+A grammar change belongs in that repository, and this wrapper follows it.
+
+**External feature contributions are not accepted here.** What is in scope, and
+worth an issue on this repository, is anything that makes the wrapper wrong
+against the grammar it claims to vendor: a parser that has fallen behind the
+canonical grammar, a build that fails, a missing exported symbol, or a
+`Package.swift` source list that does not match the vendored files. The issue
+tracker is actively used for exactly that, so read the open issues before you
+file. Report a security problem through
+[`.github/SECURITY.md`](.github/SECURITY.md) rather than a public issue.
+
 This repo is a thin **Swift Package Manager wrapper** around the
 [`tree-sitter-harn`](https://github.com/burin-labs/harn/tree/main/tree-sitter-harn) tree-sitter grammar. The generated parser
 (`Sources/TreeSitterHarn/src/parser.c` and any `scanner.c`) is **vendored** so
@@ -70,3 +90,19 @@ step-by-step re-vendor procedure. In short:
 Found malicious code in a vendored `parser.c`, a `Package.swift` escape, or a
 CI bypass? Do **not** open a public issue — follow
 [`.github/SECURITY.md`](.github/SECURITY.md).
+
+## Pull request titles
+
+Title every pull request `[Area] Sentence case`. The area is one bracketed word
+naming the part you touched, and the sentence that follows says what the change
+does, capitalized like a sentence and with no trailing period.
+
+```
+[Grammar] Re-vendor the parser from harn commit a1b2c3d
+[CI] Pin the checkout action to a release SHA
+[Tests] Cover the const and let keyword forms
+```
+
+Common areas here are `Grammar`, `Packaging`, `CI`, `Tests`, and `Docs`.
+Describe the change in three to five sentences in the body and say which
+command you ran to verify it.

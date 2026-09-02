@@ -1,10 +1,21 @@
+<!--
+Title this pull request `[Area] Sentence case`, for example:
+  [Grammar] Re-vendor the parser from harn commit a1b2c3d
+  [CI] Pin the checkout action to a release SHA
+  [Docs] Correct the exported symbol check
+
+Common areas here are `Grammar`, `Packaging`, `CI`, `Tests`, and `Docs`.
+-->
+
 ## Description
 
 <!--
-Plain language, bullet points, succinct. Describe what this PR does
-END-TO-END: the behavior change an agent, user, or downstream repo actually
-sees — NOT a list of files or tests (the Files tab already shows those). If
-the flow or data path is non-obvious, add a small Mermaid diagram in a
+Three to five sentences, in plain language: what changed in behavior an
+agent, user, or downstream repo actually sees, why it changed, the one risk
+or blind spot, and how you verified it.
+
+Not a list of files or tests — the Files and Checks tabs already show those.
+If the flow or data path is non-obvious, add a small Mermaid diagram in a
 ```mermaid fence.
 -->
 
