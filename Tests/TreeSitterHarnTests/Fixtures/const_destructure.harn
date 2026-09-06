@@ -1,0 +1,4 @@
+pipeline extract(pair) {
+  const {first, second} = pair
+  return first
+}

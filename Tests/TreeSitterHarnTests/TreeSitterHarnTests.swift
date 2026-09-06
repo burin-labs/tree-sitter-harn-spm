@@ -12,6 +12,12 @@ final class TreeSitterHarnTests: XCTestCase {
             Fixture(name: "import_and_loop"),
             Fixture(name: "control_flow"),
             Fixture(name: "types"),
+            // Falsifier for the 0.10.131 re-vendor: the previously-vendored
+            // parser (pinned pre-#4209) rejected a destructuring pattern as
+            // the name of a `const` binding, producing an ERROR node. This
+            // fixture parses cleanly only once the vendored parser includes
+            // that grammar change.
+            Fixture(name: "const_destructure"),
         ]
 
         let parser = Parser()
