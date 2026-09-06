@@ -1,0 +1,1 @@
+(source_file (pipeline_declaration name: (identifier) (parameter_list (typed_parameter name: (identifier))) (block (const_binding name: (dict_pattern (dict_pattern_field (identifier)) (dict_pattern_field (identifier))) value: (identifier)) (return_statement (identifier)))))

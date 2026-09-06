@@ -14,9 +14,10 @@ build it without needing `tree-sitter-cli`.
 
 | Field | Value |
 | --- | --- |
-| Last reviewed commit | `7f50ebbb531e064a49bfb58c09b473a12aa9e3eb` |
-| Provenance | re-vendored from harn canonical grammar on 2026-06-19 |
-| Latest harn-repo commit touching `tree-sitter-harn/src/parser.c` as of 2026-06-19 | `7f50ebbb531e064a49bfb58c09b473a12aa9e3eb` |
+| Last reviewed commit | `ab5e42aa88b631abd7bf169054d95705f1811a12` |
+| Harn release tag | `v0.10.131` |
+| Provenance | re-vendored from the harn repo's `tree-sitter-harn/` tree at tag `v0.10.131` on 2026-09-06 |
+| Latest harn-repo commit touching `tree-sitter-harn/src/parser.c` as of 2026-09-06 | `60b3277eb550f2a74b5901fa4862998843593f68` |
 
 When you re-vendor, update **Last reviewed commit** to the exact `harn` SHA
 whose `tree-sitter-harn/src/parser.c` you copied in, and bump the date.
