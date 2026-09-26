@@ -1,18 +1,23 @@
 version: 2
+
+# This file is the source projected into repositories that use GitHub Actions.
+# Cooldown gives a compromised release time to be yanked or flagged before an
+# automated PR proposes it.
 updates:
-  # The only moving dependency in this repo is the pinned GitHub Actions used
-  # by CI. The grammar itself is vendored (see UPSTREAM.md) and updated by hand
-  # under supply-chain review, not by Dependabot.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    # Cooldown defers freshly-published action versions so a compromised release
-    # has time to be yanked or flagged before Dependabot proposes it.
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Los_Angeles"
     cooldown:
       default-days: 7
-    commit-message:
-      prefix: "ci"
     groups:
       actions:
-        patterns: ["*"]
+        patterns:
+          - "*"
+
+# GitHub Actions is the only moving dependency here. The grammar is vendored
+# (see UPSTREAM.md) and updated by hand under supply-chain review, so there is
+# no swift block.
