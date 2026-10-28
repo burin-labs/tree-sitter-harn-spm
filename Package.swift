@@ -15,6 +15,7 @@ let package = Package(
             name: "TreeSitterHarn",
             path: "Sources/TreeSitterHarn",
             sources: ["src/parser.c", "src/scanner.c"],
+            resources: [.copy("queries")],
             publicHeadersPath: "include",
             cSettings: [.headerSearchPath("src")]
         ),
