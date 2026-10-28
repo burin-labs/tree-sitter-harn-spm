@@ -51,3 +51,12 @@ chain. If you can't justify each chunk, do not commit it.
 Without this file, reviewers of a re-vendor PR have no way to know which
 upstream commit produced the changes. That's how supply-chain attacks land
 unnoticed in generated artifacts.
+
+## Queries
+
+`Sources/*/queries/` holds the upstream `queries/` files (highlights.scm, injections.scm) copied
+byte-for-byte from the same **Last reviewed commit** as `parser.c`, so a
+query never names a node the vendored parser cannot produce. SwiftPM ships
+them in the target's resource bundle, where the Burin IDE loads its syntax
+highlighting and language-injection rules. Re-vendor them together with the
+parser.
